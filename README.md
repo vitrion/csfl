@@ -46,7 +46,7 @@ Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 12. Build your application and run.
 
 ****************************************************************************************************************
-FILE DESCRIPTION IN THE GPCFL
+FILE DESCRIPTION IN CSFL
 ****************************************************************************************************************
 
 | FILE NAME       | DESCRPTION |
@@ -63,53 +63,28 @@ FILE DESCRIPTION IN THE GPCFL
 | fvarExcept.cuh  | This file provides the fuzzy variable object exceptions of class "fvar." |
 
 ****************************************************************************************************************
-BASIC FLS METHODS TO BUILD CONTROL SYSTEMS
+BASIC FLS METHODS TO BUILD FUZZY SYSTEMS
 ****************************************************************************************************************
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|               FLS METHOD                |                                      DESCRPTION                                                |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::fls()                               | Creates an initializes a fuzzy logic system.                                                   |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::seName(string name)                 | Sets the <name> of the fuzzy logic system.                                                     |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::setInferenceModel(string model)     | Sets the inference <model>: Mamdani.                                                           |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::setHetProc(bool processing)         | Sets the <processing> type: false for sequential and true for heterogeneous                    |
-|                                         | by using CUDA.                                                                                 |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::setStream(bool processing)          | Sets the <CUDA Streams processing> type: false for sequential and true for heterogeneous       |
-|                                         | by using CUDA.                                                                                 |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::addFuzzyVar(string type,            | Adds a variable of <type> "Input" or "Output." The string called <name> establishes the name   |
-|  string name, vector<double> range)     | of the variable and the <range> is the interval of operation of the variable.                  |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::addFuzzySet(string variable,        | Adds a fuzzy set called <name>, in a specific <variable>. Also, you can specify the <shape>,   |
-|  string name, string shape,             | <parameters> and <normalization> values of each set.                                           |
-|  vector<double> parameters,             |                                                                                                |
-|  double normalization)                  |                                                                                                |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::addFuzzyRule(string)                | Adds a string-based fuzzy rule in a specific syntax and order. Each rule is included in the    |
-|                                         | rule set ordered in the way it is added with this method.                                      |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::configure()                         | It builds the execution plan based on the current fuzzy system configuration by using the lazy |
-|                                         | evaluation of rules. Until here, no fuzzy rule has been executed, but an execution plan is     |
-|                                         | ready for later execution. To execute the rule, use the method infer().                        |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::fuzzify(vector<double> crisp_inputs)| Fuzzify the crisp input values by using the Non-Singleton Fuzzification, according to the      |
-|                                         | fuzzy system configuration.                                                                    |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|fls::infer()                             | Executes the inference machine according to the execution plan. An inferred set is obtained    |
-|                                         | for each output variable.                                                                      |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
-|double crisp_outputs fls::defuzzify()    | Returns the defuzzified value from the inferred set obtained with the method infer. The length |
-|                                         | of the resulting std::vector object that returns the method defuzzify() is defined by the      |
-|                                         | number of the output variables.                                                                |
-|-----------------------------------------|------------------------------------------------------------------------------------------------|
 
+| FLS METHOD | DESCRPTION |
+| ---------- | ---------- |
+| fls::fls() | Creates an initializes a fuzzy logic system. |
+| fls::seName(string name) | Sets the <name> of the fuzzy logic system. |
+| fls::setInferenceModel(string model) | Sets the inference <model>: Mamdani. |
+| fls::setHetProc(bool processing) | Sets the <processing> type: false for sequential and true for heterogeneous by using CUDA. |
+| fls::setStream(bool processing)   | Sets the <CUDA Streams processing> type: false for sequential and true for heterogeneous by using CUDA. |
+| fls::addFuzzyVar(string type, string name, vector<double> range) | Adds a variable of <type> "Input" or "Output." The string called <name> establishes the name of the variable and the <range> is the interval of operation of the variable.                  |
+| fls::addFuzzySet(string variable, string name, string shape, vector<double> parameters, double normalization) | Adds a fuzzy set called <name>, in a specific <variable>. Also, you can specify the <shape>, <parameters> and <normalization> values for each set. |
+| fls::addFuzzyRule(string) | Adds a string-based fuzzy rule in a specific syntax and order. Each rule is included in the rule set ordered in the way it is added with this method. |
+| fls::configure() | It builds the execution plan based on the current fuzzy system configuration by using the lazy evaluation of rules. Until here, no fuzzy rule has been executed, but an execution plan is ready for later execution. To execute the rule, use the method infer(). |
+| fls::fuzzify(vector<double> crisp_inputs) | Fuzzify the crisp input values by using the Non-Singleton Fuzzification, according to the fuzzy system configuration.                                                                    |
+| fls::infer() | Executes the inference machine according to the execution plan. An inferred set is obtained for each output variable. | 
+| double crisp_outputs fls::defuzzify() | Returns the defuzzified value from the inferred set obtained with the method infer. The length of the resulting std::vector object that returns the method defuzzify() is defined by the number of the output variables. |
+	
 ****************************************************************************************************************
 BASIC FS OPERATORS
 ****************************************************************************************************************
-|-----------------|----------------------------------------|
+
 |    OPERATOR     |             DESCRPTION                 |
 |-----------------|----------------------------------------|
 |        +        | Fuzzy arithmetic sum. Example:         |
