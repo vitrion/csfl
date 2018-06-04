@@ -8,7 +8,7 @@ The project structure is based on the Microsoft Visual Studio 2015. The CSFL too
 This software was developed under the sponsory of the Mexican Council for Science and Technology under project number 1170.
 A journal article is derived from this software, which can be cited by the user as follows:
 
-Arturo Téllez-Velázquez and Raúl Cruz-Barbosa, “A CUDA-Streams Inference Machine for Non-Singleton Fuzzy Systems,” Concurrency Computat.: Pract. Exper. (2017), vol. X, number X, 23 pages, 2016. doi:10.1155/2012/698062
+Téllez‐Velázquez A, Cruz‐Barbosa R. A CUDA‐streams inference machine for non‐singleton fuzzy systems. Concurrency Computat Pract Exper. 2018;30:e4382. https://doi.org/10.1002/cpe.4382
 
 ## Contact information
 
