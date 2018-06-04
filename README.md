@@ -81,7 +81,7 @@ Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 |        *        | Fuzzy arithmetic product. Example: <ul><li> `fs A, B, C;` </li><li> `C = A * B;` </li></ul> |
 |        /        | Fuzzy arithmetic division. Example: <ul><li> `fs A, B, C;` </li><li> `C = A / B;` </li></ul> |
 |        &        | Fuzzy logic intersection. Example: <ul><li> `fs A, B, C;` </li><li> `C = A & B;` <li></ul> |
-|        |        | Fuzzy logic union. Example: <ul><li> `fs A, B, C;` </li><li> `C = A | B;` </li></ul> |
+|        <code>&#124;</code>        | Fuzzy logic union. Example: <ul><li> `fs A, B, C;` </li><li> `C = A <code>&#124;</code> B;` </li></ul> |
 |        !        | Fuzzy logic complement. Example: <ul><li> `fs A, B;` </li><li> `B = !A;` </li></ul> |
 
 ## Building your own application
@@ -91,7 +91,7 @@ Once you have installed all the required programs for the CSFL v1.1, please writ
 // The number of samples defines the vector operations length
 extern const unsigned int samples(100000);
 // To start building CUDA-accelerated fuzzy systems import the library
-#include "C:\Users\Arturo\OneDrive\Documentos\Catedras\UTM\Research\FLS\Programs\v1_1\fls.cuh"
+#include "fls.cuh"
 
 int main()
 {
