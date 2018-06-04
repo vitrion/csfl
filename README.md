@@ -50,12 +50,10 @@ FILE DESCRIPTION IN THE GPCFL
 ****************************************************************************************************************
 
 | FILE NAME | DESCRPTION |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|     cdev.h      | This file provides the class "cdev" that manages the CUDA device properties                                            |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|     fls.cuh     | This is the main header file that the user must include in the applications. Provides the whole methods to manage fuzzy|
-|                 | set objects of class "fs", fuzzy variable objects of class "fvar" and fuzzy rule objects of class "frule." Its         |
-|                 | functionality help the user to build fuzzy sets and systems.                                                           |
+| --------- | ---------- |
+| cdev.h    | This file provides the class "cdev" that manages the CUDA device properties |
+| --------- | --------------------------------------------------------------------------- |
+| fls.cuh   | This is the main header file that the user must include in the applications. Provides the whole methods to manage fuzzy set objects of class "fs", fuzzy variable objects of class "fvar" and fuzzy rule objects of class "frule." Its functionality help the user to build fuzzy sets and systems. |
 |-----------------|------------------------------------------------------------------------------------------------------------------------|
 |  flsExcept.cuh  | This file provides the fuzzy system object exceptions of class "fls."                                                  |
 |-----------------|------------------------------------------------------------------------------------------------------------------------|
