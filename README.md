@@ -3,17 +3,14 @@ The CUDA-Streams Fuzzy Logic (CSFL) is the easiest way to design Non-Singleton T
 
 The project structure is based on the Microsoft Visual Studio 2015. The CSFL tool has been designed as an Object-Oriented C++11 implementation with CUDA 8.0. However it can also be imported in a NVIDIA Nsight Eclipse project. Also, it has been tested in the following GPUs: GTX650 Ti and Tesla K40C.
 
-****************************************************************************************************************
-HOW TO CITE THIS SOFTWARE.
-****************************************************************************************************************
+## How to cite this software
+
 This software was developed under the sponsory of the Mexican Council for Science and Technology under project number 1170.
 A journal article is derived from this software, which can be cited by the user as follows:
 
 Arturo Téllez-Velázquez and Raúl Cruz-Barbosa, “A CUDA-Streams Inference Machine for Non-Singleton Fuzzy Systems,” Concurrency Computat.: Pract. Exper. (2017), vol. X, number X, 23 pages, 2016. doi:10.1155/2012/698062
 
-****************************************************************************************************************
-CONTACT INFORMATION.
-****************************************************************************************************************
+## Contact information
 
 For further information about installing this software, please send us an email to the following recipients:
 
@@ -28,9 +25,7 @@ Carretera a Acatlima km. 2.5, Zip. Code 69000,
 Huajuapan de León, Oaxaca, México, 2016.
 Phone number: +52 953 532 0399 ext. 200.
 
-****************************************************************************************************************
-INSTALLATION GUIDELINES.
-****************************************************************************************************************
+## Instalation guidelines
 
 Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 
@@ -45,9 +40,7 @@ Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 11. Please be sure of calling the global funnctions CUDAinit() at the beggining of your code and CUDAend() at the end of your code.
 12. Build your application and run.
 
-****************************************************************************************************************
-FILE DESCRIPTION IN CSFL
-****************************************************************************************************************
+## CSFL file description
 
 | FILE NAME       | DESCRPTION |
 | ---------       | ---------- |
@@ -62,9 +55,7 @@ FILE DESCRIPTION IN CSFL
 | fvar.cuh        | This file provides the fuzzy variable class and its functionality to contain and manage fuzzy set objects of class "fs."                                                                                                               
 | fvarExcept.cuh  | This file provides the fuzzy variable object exceptions of class "fvar." |
 
-****************************************************************************************************************
-BASIC FLS METHODS TO BUILD FUZZY SYSTEMS
-****************************************************************************************************************
+## Basic CSFL methods to build fuzzy systems
 
 | FLS METHOD | DESCRPTION |
 | ---------- | ---------- |
@@ -81,44 +72,22 @@ BASIC FLS METHODS TO BUILD FUZZY SYSTEMS
 | fls::infer() | Executes the inference machine according to the execution plan. An inferred set is obtained for each output variable. | 
 | double crisp_outputs fls::defuzzify() | Returns the defuzzified value from the inferred set obtained with the method infer. The length of the resulting std::vector object that returns the method defuzzify() is defined by the number of the output variables. |
 	
-****************************************************************************************************************
-BASIC FS OPERATORS
-****************************************************************************************************************
+## Basic CSFL operators
 
 |    OPERATOR     |             DESCRPTION                 |
 |-----------------|----------------------------------------|
-|        +        | Fuzzy arithmetic sum. Example: <ul><li> fs A, B, C; </li><li> C = A + B; </li></ul> |
-|        -        | Fuzzy arithmetic subtraction. Example: |
-|                 | fs A, B, C;                            |
-|                 | C = A - B;                             |
-|-----------------|----------------------------------------|
-|        *        | Fuzzy arithmetic product. Example:     |
-|                 | fs A, B, C;                            |
-|                 | C = A * B;                             |
-|-----------------|----------------------------------------|
-|        /        | Fuzzy arithmetic division. Example:    |
-|                 | fs A, B, C;                            |
-|                 | C = A / B;                             |
-|-----------------|----------------------------------------|
-|        &        | Fuzzy logic intersection. Example:     |
-|                 | fs A, B, C;                            |
-|                 | C = A & B;                             |
-|-----------------|----------------------------------------|
-|        |        | Fuzzy logic union. Example:            |
-|                 | fs A, B, C;                            |
-|                 | C = A | B;                             |
-|-----------------|----------------------------------------|
-|        !        | Fuzzy logic complement. Example:       |
-|                 | fs A, B;                               |
-|                 | B = !A;                                |
-|-----------------|----------------------------------------|
+|        +        | Fuzzy arithmetic sum. Example: <ul><li> `fs A, B, C;` </li><li> `C = A + B;` </li></ul> |
+|        -        | Fuzzy arithmetic subtraction. Example: <ul><li> `fs A, B, C;` </li><li> `C = A - B;` </li></ul> |
+|        *        | Fuzzy arithmetic product. Example: <ul><li> `fs A, B, C;` </li><li> `C = A * B;` </li></ul> |
+|        /        | Fuzzy arithmetic division. Example: <ul><li> `fs A, B, C;` </li><li> `C = A / B;` </li></ul> |
+|        &        | Fuzzy logic intersection. Example: <ul><li> `fs A, B, C;` </li><li> `C = A & B;` <li></ul> |
+|        |        | Fuzzy logic union. Example: <ul><li> `fs A, B, C;` </li><li> `C = A | B;` </li></ul> |
+|        !        | Fuzzy logic complement. Example: <ul><li> `fs A, B;` </li><li> `B = !A;` </li></ul> |
 
-****************************************************************************************************************
-BUILDING YOU OWN APPLICATION.
-****************************************************************************************************************
+## Building your own application
 
 Once you have installed all the required programs for the CSFL v1.1, please write the following code to build a simple Fuzzy System for the DC Servomotor Control. This example is expressed as a pseudo-code in the derived paper:
-
+```
 // The number of samples defines the vector operations length
 extern const unsigned int samples(100000);
 // To start building CUDA-accelerated fuzzy systems import the library
@@ -205,3 +174,5 @@ int main()
 	cin.get();
     return 0;
 }
+
+```
