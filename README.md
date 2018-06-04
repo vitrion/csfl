@@ -81,7 +81,7 @@ Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 |        *        | Fuzzy arithmetic product. Example: <ul><li> `fs A, B, C;` </li><li> `C = A * B;` </li></ul> |
 |        /        | Fuzzy arithmetic division. Example: <ul><li> `fs A, B, C;` </li><li> `C = A / B;` </li></ul> |
 |        &        | Fuzzy logic intersection. Example: <ul><li> `fs A, B, C;` </li><li> `C = A & B;` <li></ul> |
-|        <code>&#124;</code>        | Fuzzy logic union. Example: <ul><li> `fs A, B, C;` </li><li> <code> C = A &#124 B;</code> </li></ul> |
+|        <code>&#124;</code>        | Fuzzy logic union. Example: <ul><li> `fs A, B, C;` </li><li> <code> C = A &#124; B;</code> </li></ul> |
 |        !        | Fuzzy logic complement. Example: <ul><li> `fs A, B;` </li><li> `B = !A;` </li></ul> |
 
 ## Building your own application
