@@ -87,10 +87,7 @@ BASIC FS OPERATORS
 
 |    OPERATOR     |             DESCRPTION                 |
 |-----------------|----------------------------------------|
-|        +        | Fuzzy arithmetic sum. Example:         |
-|                 | fs A, B, C;                            |
-|                 | C = A + B;                             |
-|-----------------|----------------------------------------|
+|        +        | Fuzzy arithmetic sum. Example: <ul><li> fs A, B, C; </li><li> C = A + B; </li></ul> |
 |        -        | Fuzzy arithmetic subtraction. Example: |
 |                 | fs A, B, C;                            |
 |                 | C = A - B;                             |
