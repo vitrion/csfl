@@ -49,30 +49,18 @@ Guidelines for installing the CUDA-Streams Fuzzy Library (CSFL) v1.1:
 FILE DESCRIPTION IN THE GPCFL
 ****************************************************************************************************************
 
-| FILE NAME | DESCRPTION |
-| --------- | ---------- |
-| cdev.h    | This file provides the class "cdev" that manages the CUDA device properties |
-| --------- | --------------------------------------------------------------------------- |
-| fls.cuh   | This is the main header file that the user must include in the applications. Provides the whole methods to manage fuzzy set objects of class "fs", fuzzy variable objects of class "fvar" and fuzzy rule objects of class "frule." Its functionality help the user to build fuzzy sets and systems. |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|  flsExcept.cuh  | This file provides the fuzzy system object exceptions of class "fls."                                                  |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-| flsFriends.cuh  | This file provides the friend functions of classes "fls," "fs," "fvar," and "frule."                                   |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|   frule.cuh     | This file provides the fuzzy rule class and its functionality based on STL objects of class "string."                  |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-| fruleExcept.cuh | This file provides the fuzzy rule object exceptions of class "frule."                                                  |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|     fs.cuh      | This file is the main building block for the class "fls." Provides the fuzzy arithmetic and logic operations for fuzzy |
-|                 | sets. Also it provides CUDA acceleration by enabling a flag called "isCUDA."                                           |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|  fsExcept.cuh   | This file provides the fuzzy set object exceptions of class "fs."                                                      |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-|    fvar.cuh     | This file provides the fuzzy variable class and its functionality to contain and manage fuzzy set objects of class     |
-|                 | "fs."                                                                                                                  |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
-| fvarExcept.cuh  | This file provides the fuzzy variable object exceptions of class "fvar."                                               |
-|-----------------|------------------------------------------------------------------------------------------------------------------------|
+| FILE NAME       | DESCRPTION |
+| ---------       | ---------- |
+| cdev.h          | This file provides the class "cdev" that manages the CUDA device properties |
+| fls.cuh         | This is the main header file that the user must include in the applications. Provides the whole methods to manage fuzzy set objects of class "fs", fuzzy variable objects of class "fvar" and fuzzy rule objects of class "frule." Its functionality help the user to build fuzzy sets and systems. |
+| flsExcept.cuh   | This file provides the fuzzy system object exceptions of class "fls." |
+| flsFriends.cuh  | This file provides the friend functions of classes "fls," "fs," "fvar," and "frule." |
+| frule.cuh       | This file provides the fuzzy rule class and its functionality based on STL objects of class "string." |
+| fruleExcept.cuh | This file provides the fuzzy rule object exceptions of class "frule." |
+| fs.cuh          | This file is the main building block for the class "fls." Provides the fuzzy arithmetic and logic operations for fuzzy sets. Also it provides CUDA acceleration by enabling a flag called "isCUDA." |
+| fsExcept.cuh    | This file provides the fuzzy set object exceptions of class "fs." |
+| fvar.cuh        | This file provides the fuzzy variable class and its functionality to contain and manage fuzzy set objects of class "fs."                                                                                                               
+| fvarExcept.cuh  | This file provides the fuzzy variable object exceptions of class "fvar." |
 
 ****************************************************************************************************************
 BASIC FLS METHODS TO BUILD CONTROL SYSTEMS
