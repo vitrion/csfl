@@ -1,5 +1,5 @@
 extern const unsigned int samples(8001);
-#include "C:\Users\Arturo\OneDrive\Documentos\Catedras\UTM\Research\FLS\Programs\v1_1\fls.cuh"
+#include "fls.cuh"
 #include <iomanip>
 #include <fstream>
 
