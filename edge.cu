@@ -23,12 +23,7 @@ int main()
 	string fileName = "lenagrayfull";
 	ifstream inputFile;
 	inputFile.open(fileName + ".dat");
-	//vector<unsigned int> imSize = { 254, 308 };
-	//vector<unsigned int> imSize = { 112, 68 };
-	//vector<unsigned int> imSize = { 248, 302 };
 	vector<unsigned int> imSize = { 722, 470 };
-	//vector<unsigned int> imSize = { 264, 264 };
-	//vector<unsigned int> imSize = { 16, 16 };
 	vector<vector<float>> first(imSize[0], vector<float>(imSize[1])), second(imSize[0], vector<float>(imSize[1])), fuzzyEdges(imSize[0], vector<float>(imSize[1]));
 	for (unsigned int i = 0; i < 2 * imSize[0]; i++)
 		for (unsigned int j = 0; j < imSize[1]; j++) {
@@ -70,7 +65,6 @@ int main()
 			string str = convert.str();
 			edge.addFuzzyVar("Input", "p" + str, range[0], range[1]);
 		}
-		//edge.addFuzzyVar("Input", "f", range[0], range[1]);
 		edge.addFuzzyVar("Input", "s", range[0], range[1]);
 		edge.addFuzzyVar("Output", "e", -4.0, 10.0);
 
@@ -122,7 +116,6 @@ int main()
 					first[i + 0][j - 1], first[i][j], first[i + 0][j + 1],
 					first[i + 1][j - 1], first[i + 1][j + 0], first[i + 1][j + 1],
 					second[i][j] };
-				//vector<float> pixelInputs = { first[i][j], second[i][j] };
 				vector<fs> x_primes(pixelInputs.size(), fs(isCUDA, isStream));
 				for (unsigned int k = 0; k < pixelInputs.size(); k++) {
 					ostringstream convert;
@@ -139,9 +132,8 @@ int main()
 				edge.fuzzify(x_primes);
 				// Execute inference process according to inference schedule
 				edge.infer();
-				//vector<fs> inferred = edge.getInferredSets();
 				// Defuzzification process
-				fuzzyEdges[i][j] = edge.defuzzify()[0];//inferred[0].getNormalization();
+				fuzzyEdges[i][j] = edge.defuzzify()[0];
 				cout << fixed << setprecision(2) << "\t\t" << "|" << first[i - 1][j - 1] << ",\t" << first[i - 1][j + 0] << ",\t" << first[i - 1][j + 1] << "|" << endl;
 				cout << "(" << i << ", " << j << ") = \t" << "|" << first[i + 0][j - 1] << ",\t" << first[i + 0][j + 0] << ",\t" << first[i + 0][j + 1] << "| = \t" << fuzzyEdges[i][j] << endl;
 				cout << "\t\t" << "|" << first[i + 1][j - 1] << ",\t" << first[i + 1][j + 0] << ",\t" << first[i + 1][j + 1] << "|" << endl;
