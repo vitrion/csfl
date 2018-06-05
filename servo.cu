@@ -1,7 +1,7 @@
 // The number of samples defines the vector operations length
 extern const unsigned int samples(100000);
 // To start building CUDA-accelerated fuzzy systems import the library
-#include "C:\Users\Arturo\OneDrive\Documentos\Catedras\UTM\Research\FLS\Programs\v1_1\fls.cuh"
+#include "fls.cuh"
 
 int main()
 {
