@@ -74,11 +74,6 @@ int main()
 		edge.addFuzzyVar("Input", "s", range[0], range[1]);
 		edge.addFuzzyVar("Output", "e", -4.0, 10.0);
 
-		/*edge.addFuzzySet("f", "D", "Z", { firstDarkParams[0], firstDarkParams[1] }, 1);
-		edge.addFuzzySet("f", "B", "S", { firstBrightParams[0], firstBrightParams[1] }, 1);
-		edge.addFuzzySet("s", "D", "Z", { secondDarkParams[0], secondDarkParams[1] }, 1);
-		edge.addFuzzySet("s", "B", "S", { secondBrightParams[0], secondBrightParams[1] }, 1);*/
-
 		// Generate automatically every set in every variable
 		for (unsigned int i = 0; i < edge.getInVarCount(); i++) {
 			string varName = edge.getInVarName(i);
@@ -95,168 +90,7 @@ int main()
 		edge.addFuzzySet("e", "D", "Z", { odarkParams[0], odarkParams[1] }, 1);
 		edge.addFuzzySet("e", "B", "S", { obrightParams[0], obrightParams[1] }, 1);
 
-		/*edge.addFuzzyRule("(p1:B)AND(p5:B)AND(p9:B)THEN(e:B)");
-		edge.addFuzzyRule("(p2:B)AND(p5:B)AND(p8:B)THEN(e:B)");
-		edge.addFuzzyRule("(p3:B)AND(p5:B)AND(p7:B)THEN(e:B)");
-		edge.addFuzzyRule("(p4:B)AND(p5:B)AND(p6:B)THEN(e:B)");
-		edge.addFuzzyRule("ELSE(e:D)");*/
-		
-		// More than 6 the pixels must become the new pixel dark, when pixel 5 is bright
-		///*edge.addFuzzyRule("(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-
-		//// More than 6 the pixels must become the new pixel dark, when pixel 5 is dark
-		//edge.addFuzzyRule("(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:D)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p5:D)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-
-		//// Main rules that preserve the edges
-		//edge.addFuzzyRule("(p5:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p8:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p7:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p7:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p6:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p6:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p6:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p5:B)AND(p6:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:B)AND(p6:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:B)AND(p6:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p3:B)AND(p4:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:B)AND(p6:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p4:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:B)AND(p9:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:B)AND(p8:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:B)AND(p7:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:B)AND(p6:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p4:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p5:B)THEN(e:B)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p5:B)THEN(e:B)");
-
-		//// Main rules when pixel 5 is dark. In this case the new pixel must be dark also
-		//edge.addFuzzyRule("(p5:D)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p7:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p7:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p6:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p6:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p6:B)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p5:D)AND(p6:B)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:D)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:D)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:D)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p4:B)AND(p5:D)AND(p6:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:D)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:D)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:D)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p5:D)AND(p6:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p3:B)AND(p4:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:D)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:D)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:D)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p5:D)AND(p6:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p4:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p2:B)AND(p3:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:D)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:D)AND(p8:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:D)AND(p7:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p5:D)AND(p6:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p4:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p3:B)AND(p5:D)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p5:D)THEN(e:D)");
-
 		edge.addFuzzyRule("(p1:B)AND(p2:B)AND(p3:B)AND(p4:B)AND(p6:B)AND(p7:B)AND(p8:B)AND(p9:B)THEN(e:D)");
-		//edge.addFuzzyRule("(p1:D)AND(p2:D)AND(p3:D)AND(p4:D)AND(p6:D)AND(p7:D)AND(p8:D)AND(p9:D)THEN(e:D)");
 		edge.addFuzzyRule("(p5:B)AND(s:D)THEN(e:B)");
 		// Otherwise case
 		edge.addFuzzyRule("ELSE(e:D)");
@@ -336,8 +170,6 @@ int main()
 		convert4 << setfill('0') << setw(3) << offset2 * 100;
 		convert5 << setfill('0') << setw(3) << ap1 * 100;
 		convert6 << setfill('0') << setw(3) << ap2 * 100;
-		// name: "lenagrayfull" + #rules: "001" + offset1: "0.65" + offset2: "0.75" + firstDerivAp: "0.10" + secondDerivAp: "0.20"
-		// lenagrayfull00165751020.dat
 		outputFile.open(fileName + convert1.str() + convert2.str() + convert3.str() + convert4.str() + convert5.str() + convert6.str() + ".dat");
 		for (unsigned int i = 0; i < imSize[0]; i++) {
 			for (unsigned int j = 0; j < imSize[1]; j++) {
