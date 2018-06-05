@@ -10,14 +10,12 @@ int main()
 	unsigned int numOfRules = 120;
 	float sigma = 0.25;
 	unsigned int numOfSetsPerVar = 4;
-	nvtxRangeId_t t14, t17, t18, t19;
 
 	// FLS initialization
 	CUDAinit();
 
 	cout << "T1FLS configuration started..." << endl;
 	fls macro;
-	//t14 = nvtxRangeStartEx(&events[14]);	
 	macro.setName("macroTest");
 	macro.setInferenceModel("Mamdani");	
 
@@ -68,11 +66,8 @@ int main()
 	}
 	// Generates all the possible rules according to the available premises
 	macro.addFuzzyRule(numOfRules);
-	//macro.addFuzzyRule();
 	// Generate the inference schedule before execution
 	macro.configure();
-
-	//nvtxRangeEnd(t14);
 
 	for (unsigned int h = 0; h < 1; h++) {			
 		// Starts initialization
@@ -101,20 +96,12 @@ int main()
 		}
 
 		// Ends initialization
-		if (h == 0){
+		if (h == 0)
 			cout << "Heterogeneous with Streams fuzzy processing started..." << endl;
-			t19 = nvtxRangeStartEx(&events[19]);
-			//cout << "Sequential fuzzy processing started..." << endl;
-			//t17 = nvtxRangeStartEx(&events[17]);
-		}
-		else if (h == 1) {
+		else if (h == 1)
 			cout << "Heterogeneous fuzzy processing started..." << endl;
-			t18 = nvtxRangeStartEx(&events[18]);
-		}
-		else {
+		else
 			cout << "Heterogeneous with Streams fuzzy processing started..." << endl;
-			t19 = nvtxRangeStartEx(&events[19]);
-		}
 		// Starts execution
 
 		// Fuzzification process
@@ -128,22 +115,13 @@ int main()
 
 		// Ends execution
 		if (h == 0){
-			nvtxRangeEnd(t19);
 			cout << "Heterogeneous with Streams fuzzy processing finished." << endl;
-			//nvtxRangeEnd(t17);
-			//cout << "Sequential fuzzy processing finished." << endl;
-		}
-		else if (h == 1) {
-			nvtxRangeEnd(t18);
+		else if (h == 1)
 			cout << "Heterogeneous fuzzy processing finished." << endl;
-		}
-		else {
-			nvtxRangeEnd(t19);
+		else
 			cout << "Heterogeneous with Streams fuzzy processing finished." << endl;
-		}
 		cout << result[0] << endl;
 	}
 	CUDAend();
-	// cin.get();
     return 0;
 }
